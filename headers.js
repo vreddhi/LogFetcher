@@ -1,9 +1,12 @@
       chrome.webRequest.onHeadersReceived.addListener(function(details) { 
-        	console.log(details.responseHeaders);
-			for (var i = 0, l = details.responseHeaders.length; i < l; i++) {
-			  console.log(details.responseHeaders[i].name);
-			}        	
+      	console.log("**********--------------********************" );
+      	console.log("URL " + details.url);
+	    details.responseHeaders.forEach(function(v){	    	      
+		      if(v.name == "X-Cache" || v.name == "Date" || v.name == "X-Akamai-Request-ID"){
+		       console.log("Name: " + v.name + " Value: " + v.value );		 		        
+		      }
+	      })			  		       	
          },
-        {urls: ["*://www.evil.com/"]},
+        {urls: ["*://*/*"]},
         ["responseHeaders"]);
 
