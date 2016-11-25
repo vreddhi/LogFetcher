@@ -1,0 +1,24 @@
+{
+  "name": "Akamai Log Fetcher",
+  "description": "Display and fetch child server logs",
+  "icons": { "48": "logo.png" },
+  "version": "0.1",
+  "permissions": [
+    "debugger",
+    "tabs",
+    "https://tools.gss.akamai.com/portal/",
+    "webRequest",
+    "webRequestBlocking",
+    "*://*/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_icon": "logo.png",
+    "default_title": "Akamai Log Fetcher",
+    "default_popup": "headers.html"
+  },
+  "manifest_version": 2
+}
+
