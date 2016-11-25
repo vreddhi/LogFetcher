@@ -1,3 +1,10 @@
+      chrome.webRequest.onBeforeSendHeaders.addListener(function(request) {
+      	request.requestHeaders.push({name: "Vreddhi", value: "test"});
+      	return {requestHeaders: request.requestHeaders};
+      },
+      {urls: ["*://*/*"]},
+      ["requestHeaders","blocking"]);
+
       chrome.webRequest.onHeadersReceived.addListener(function(details) { 
       	console.log("**********--------------********************" );
       	console.log("URL " + details.url);
